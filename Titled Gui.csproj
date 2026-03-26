@@ -1,0 +1,134 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<RootNamespace>Titled_Gui</RootNamespace>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PlatformTarget>x64</PlatformTarget>
+		<UseWindowsForms>true</UseWindowsForms>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<Platforms>AnyCPU;x64</Platforms>
+		<EnableWindowsTargeting>true</EnableWindowsTargeting>
+		<AssemblyName>Titled GUI</AssemblyName>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\ClickSounds\Creamy.wav" />
+	  <None Remove="Resources\fonts\glyph.ttf" />
+	  <None Remove="Resources\fonts\Lineicons.ttf" />
+	  <None Remove="Resources\fonts\NotoSans-Bold.ttf" />
+	  <None Remove="Resources\fonts\undefeated.ttf" />
+	  <None Remove="Resources\MenuLogo.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Resources\fonts\glyph.ttf">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\fonts\Lineicons.ttf">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\fonts\NotoSans-Bold.ttf">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\MenuLogo.png">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\NeverLose.wav">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Resources\Skeet.wav">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="ClickableTransparentOverlay" Version="9.1.0" />
+		<PackageReference Include="ImGui.NET" Version="1.90.0.1" />
+		<PackageReference Include="NAudio" Version="2.2.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+		<PackageReference Include="SixLabors.ImageSharp" Version="3.1.11" />
+		<PackageReference Include="swed64" Version="1.0.5" />
+		<PackageReference Include="ValvePak" Version="4.0.0.142" />
+		<PackageReference Include="ValveResourceFormat" Version="10.2.3850" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Configs\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Resources\fonts\undefeated.ttf">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Resources\ClickSounds\Creamy.wav">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Data\Game\MapParser\PreExtractedMapData\tri\ar_baggage.tri">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Data\Game\MapParser\PreExtractedMapData\tri\ar_shoots.tri">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Data\Game\MapParser\PreExtractedMapData\tri\ar_shoots_night.tri">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Data\Game\MapParser\PreExtractedMapData\tri\cs_agency.tri">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Data\Game\MapParser\PreExtractedMapData\tri\cs_italy.tri">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Data\Game\MapParser\PreExtractedMapData\tri\cs_office.tri">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Data\Game\MapParser\PreExtractedMapData\tri\de_ancient.tri">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Data\Game\MapParser\PreExtractedMapData\tri\de_ancient_night.tri">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Data\Game\MapParser\PreExtractedMapData\tri\de_anubis.tri">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Data\Game\MapParser\PreExtractedMapData\tri\de_dust2.tri">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Data\Game\MapParser\PreExtractedMapData\tri\de_golden.tri">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Data\Game\MapParser\PreExtractedMapData\tri\de_inferno.tri">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Data\Game\MapParser\PreExtractedMapData\tri\de_mirage.tri">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Data\Game\MapParser\PreExtractedMapData\tri\de_nuke.tri">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Data\Game\MapParser\PreExtractedMapData\tri\de_overpass.tri">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Data\Game\MapParser\PreExtractedMapData\tri\de_palacio.tri">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Data\Game\MapParser\PreExtractedMapData\tri\de_rooftop.tri">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Data\Game\MapParser\PreExtractedMapData\tri\de_train.tri">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Data\Game\MapParser\PreExtractedMapData\tri\de_vertigo.tri">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+</Project>
