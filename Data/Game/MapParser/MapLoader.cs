@@ -7,7 +7,32 @@ namespace Titled_Gui.Data.Game.MapParser
 {
     public class MapLoader // https://github.com/AtomicBool/cs2-map-parser  THIS TOOK 40 MINS TO CONVERT FROM CPP TO C#
     {
-        private readonly string cs2BaseFolder = @"D:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\game\csgo\";
+        private static string _cs2BaseFolder = "";
+
+        public static string Cs2BaseFolder
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_cs2BaseFolder))
+                    _cs2BaseFolder = DetectCs2BaseFolder();
+                return _cs2BaseFolder;
+            }
+            set => _cs2BaseFolder = value;
+        }
+
+        private static string DetectCs2BaseFolder()
+        {
+            string path1 = @"D:\SteamLibrary\steamapps\common\Counter-Strike Global Offensive\game\csgo\";
+            if (Directory.Exists(path1))
+                return path1;
+
+            string path2 = @"C:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive\game\csgo\";
+            if (Directory.Exists(path2))
+                return path2;
+
+            return path1;
+        }
+
         private readonly string _mapsFolder = "maps";
         private readonly string _pathToTris = Path.Combine(AppContext.BaseDirectory, "Data", "Game", "MapParser", "PreExtractedMapData" , "tri");
         public string PreviousMapName = "";
@@ -112,7 +137,7 @@ namespace Titled_Gui.Data.Game.MapParser
 
         public bool LoadMap(string mapName)
         {
-            string filePath = Path.Combine(cs2BaseFolder, _mapsFolder, mapName + ".vpk");
+            string filePath = Path.Combine(Cs2BaseFolder, _mapsFolder, mapName + ".vpk");
             string triFilePath = Path.Combine(_pathToTris, mapName + ".tri");
             if (!File.Exists(filePath) || !File.Exists(triFilePath))
             {

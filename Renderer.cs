@@ -95,6 +95,7 @@ namespace Titled_Gui
         private static bool menuSounds = true;
         private static float menuSoundsVolume = 0.8f;
         private static bool _enableVsync = true;
+        private static string _cs2BaseFolderInput = Titled_Gui.Data.Game.MapParser.MapLoader.Cs2BaseFolder;
 
         public void UpdateEntities(IEnumerable<Entity> newEntities) => entities = newEntities.ToList();
 
@@ -154,7 +155,6 @@ namespace Titled_Gui
 
                 RenderESPOverlay();
                 RenderMainWindow();
-                RenderWaterMark();
                 BombTimerOverlay.TimeOverlay();
                 //Library.UpdateNotifications(io.DeltaTime);
             }
@@ -164,6 +164,7 @@ namespace Titled_Gui
             }
         }
 
+        /*
         public void RenderWaterMark()
         {
             if (!EnableWaterMark && !IsTextFontBigLoaded)
@@ -195,6 +196,7 @@ namespace Titled_Gui
             ImGui.End();
 
         }
+        */
 
         private void RenderESPOverlay()
         {
@@ -676,6 +678,24 @@ namespace Titled_Gui
 
                             ImGui.BeginChild("RightColumn");
                             ImGui.Spacing();
+                            ImGui.Spacing();
+
+                            ImGui.Text("CS2 Base Folder:");
+                            ImGui.SetNextItemWidth(ImGui.GetContentRegionAvail().X - 10f);
+                            ImGui.InputText("##cs2path", ref _cs2BaseFolderInput, 512);
+                            if (ImGui.Button("Apply Path", new Vector2(120, 30)))
+                            {
+                                Titled_Gui.Data.Game.MapParser.MapLoader.Cs2BaseFolder = _cs2BaseFolderInput;
+                            }
+                            ImGui.SameLine();
+                            bool pathExists = Directory.Exists(_cs2BaseFolderInput);
+                            if (pathExists)
+                                ImGui.TextColored(new Vector4(0f, 1f, 0f, 1f), "Path OK");
+                            else
+                                ImGui.TextColored(new Vector4(1f, 0.3f, 0.3f, 1f), "Path not found");
+
+                            ImGui.Spacing();
+                            ImGui.Separator();
                             ImGui.Spacing();
 
                             ImGui.Text("About:");
