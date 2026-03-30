@@ -9,9 +9,9 @@ namespace Titled_Gui.ImGUI.Widgets
 {
     internal class Toggles
     {
-        private static Vector4 trackColor = new(0.18f, 0.18f, 0.20f, 1f);
-        private static Vector4 KnobOffColor = new(0.15f, 0.15f, 0.15f, 1f);
-        private static Vector4 KnobOnColor = new(0.2745f, 0.3176f, 0.4510f, 1.0f);
+        private static Vector4 trackColor = new(0.165f, 0.125f, 0.251f, 1f);    // #2a2040
+        private static Vector4 KnobOffColor = new(0.482f, 0.435f, 0.6f, 1f);    // #7b6f99
+        private static Vector4 KnobOnColor = new(0.78f, 0.49f, 1f, 1f);         // #c77dff
 
         private static Dictionary<string, bool> OpenPopups = [];
         private static Dictionary<string, bool> PreviousValues = [];
